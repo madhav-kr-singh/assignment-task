@@ -213,8 +213,8 @@ export const complaintSlice = createSlice({
     })
     builder.addCase(logComplaintThunk.fulfilled, (state, action) => {
       state.isLoading = false
-      state.draft = action.payload.draft
-      state.risk = action.payload.risk
+      state.draft = action.payload.draft || state.draft
+      state.risk = action.payload.risk || state.risk
       state.messages.push({
         id: Math.random().toString(36).substring(7),
         role: 'assistant',
@@ -231,8 +231,8 @@ export const complaintSlice = createSlice({
     })
     builder.addCase(editComplaintThunk.fulfilled, (state, action) => {
       state.isLoading = false
-      state.draft = action.payload.draft
-      state.risk = action.payload.risk
+      state.draft = action.payload.draft || state.draft
+      state.risk = action.payload.risk || state.risk
       state.messages.push({
         id: Math.random().toString(36).substring(7),
         role: 'assistant',
@@ -249,8 +249,8 @@ export const complaintSlice = createSlice({
     })
     builder.addCase(uploadDocumentThunk.fulfilled, (state, action) => {
       state.uploading = false
-      state.draft = action.payload.draft
-      state.risk = action.payload.risk
+      state.draft = action.payload.draft || state.draft
+      state.risk = action.payload.risk || state.risk
       state.messages.push({
         id: Math.random().toString(36).substring(7),
         role: 'assistant',

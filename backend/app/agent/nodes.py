@@ -154,7 +154,11 @@ def compose_reply(state: AgentState) -> dict:
     is_greeting = desc in ["hi", "hii", "hello", "hey", "test", "ok", "yes", "no"]
     
     if is_greeting or (not draft.get("product_name") and not draft.get("detailed_description")):
-        return {"reply": "Please send the complaint details and I will extract the information for you."}
+        return {
+            "reply": "Please send the complaint details and I will extract the information for you.",
+            "draft": draft,
+            "risk": state.get("risk") or {}
+        }
 
     msg = state["extracted"].get("assistant_message", "Got it — I've processed the details.")
     risk = state["risk"] or {}
