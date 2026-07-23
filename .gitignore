@@ -1,0 +1,21 @@
+# Dependency directories
+node_modules/
+backend/venv/
+backend/__pycache__/
+*.pyc
+backend/.env
+
+
+# Local databases
+backend/*.db
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# VS Code environment configurations
+.vscode/
+
+# Exclude markdown files (except README.md)
+*.md
+!README.md
