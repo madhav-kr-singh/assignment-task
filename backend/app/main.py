@@ -34,6 +34,14 @@ app.add_middleware(
 
 app.include_router(complaints.router)
 
+@app.get("/")
+def home():
+    return {
+        "status": "online",
+        "message": "AIVOA Customer Complaint QMS Copilot Backend API is running successfully.",
+        "version": "1.0.0"
+    }
+
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
