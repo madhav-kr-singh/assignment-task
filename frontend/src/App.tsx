@@ -488,6 +488,17 @@ const App: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col gap-1.5">
+                <label className="text-[11px] font-bold uppercase tracking-wider text-[#4f46e5]/80">Suggested Root Cause Category</label>
+                <textarea
+                  ref={rootCauseRef}
+                  rows={1}
+                  className="bg-white text-slate-800 border border-slate-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 rounded-lg py-2 px-3 text-sm outline-none font-semibold shadow-sm transition-all duration-200 resize-none overflow-hidden"
+                  placeholder="Awaiting assessment..."
+                  value={draft.root_cause_category || ''}
+                  onChange={(e) => dispatch(updateDraftField({ key: 'root_cause_category', value: e.target.value }))}
+                />
+              </div>
+              <div className="flex flex-col gap-1.5 col-span-2">
                 <label className="text-[11px] font-bold uppercase tracking-wider text-[#4f46e5]/80">Suggested Next Action</label>
                 <textarea
                   ref={nextActionRef}
@@ -507,17 +518,6 @@ const App: React.FC = () => {
                   placeholder="Awaiting assessment..."
                   value={risk.reasoning || ''}
                   onChange={(e) => dispatch(updateRiskField({ key: 'reasoning', value: e.target.value }))}
-                />
-              </div>
-              <div className="flex flex-col gap-1.5 col-span-2">
-                <label className="text-[11px] font-bold uppercase tracking-wider text-[#4f46e5]/80">Suggested Root Cause Category</label>
-                <textarea
-                  ref={rootCauseRef}
-                  rows={1}
-                  className="bg-white text-slate-800 border border-slate-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-600 rounded-lg py-2 px-3 text-sm outline-none font-semibold shadow-sm transition-all duration-200 resize-none overflow-hidden"
-                  placeholder="Awaiting assessment..."
-                  value={draft.root_cause_category || ''}
-                  onChange={(e) => dispatch(updateDraftField({ key: 'root_cause_category', value: e.target.value }))}
                 />
               </div>
               <div className="flex flex-col gap-1.5 col-span-2">
